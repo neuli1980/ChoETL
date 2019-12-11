@@ -12,6 +12,6 @@ build:
   verbosity: minimal
 test_script:
 - cmd: >-
-    OpenCover.Console.exe -register:user -target:"nunit3-console.exe" -targetargs:"C:\projects\choetl\src\Test\ChoCSVReaderTest\bin\Debug\ChoCSVReaderTest.exe C:\projects\choetl\src\Test\ChoCSVReaderUnitTest\bin\Debug\ChoCSVReaderUnitTest.dll C:\projects\choetl\src\Test\ChoXmlReaderUnitTest\bin\Debug\ChoXmlReaderUnitTest.dll" -output:".\MyProject_coverage.xml"
+    OpenCover.Console.exe -returntargetcode -register:user -target:"nunit3-console.exe" -targetargs:"C:\projects\choetl\src\Test\ChoCSVReaderTest\bin\Debug\ChoCSVReaderTest.exe C:\projects\choetl\src\Test\ChoCSVReaderUnitTest\bin\Debug\ChoCSVReaderUnitTest.dll C:\projects\choetl\src\Test\ChoXmlReaderUnitTest\bin\Debug\ChoXmlReaderUnitTest.dll" -output:".\MyProject_coverage.xml"
 
     codecov -f "MyProject_coverage.xml"
