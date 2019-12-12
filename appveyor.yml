@@ -12,9 +12,16 @@ build:
   verbosity: minimal
 test_script:
 - cmd: >-
+    echo Starting OpenCover
     OpenCover.Console.exe -returntargetcode -register:administrator -target:"nunit3-console.exe" -targetargs:"C:\projects\choetl\src\Test\ChoCSVReaderTest\bin\Debug\ChoCSVReaderTest.exe C:\projects\choetl\src\Test\ChoCSVReaderUnitTest\bin\Debug\ChoCSVReaderUnitTest.dll C:\projects\choetl\src\Test\ChoXmlReaderUnitTest\bin\Debug\ChoXmlReaderUnitTest.dll" -output:"coverage.xml"
+    echo Finished OpenCover
 after_test:
 - ps: |
+    Write-Host "Now beginning of after_test section"
     $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
+    Write-Host "after 2"
       Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
+    Write-Host "after 3"
       bash codecov.sh -f "coverage.xml"
+    Write-Host "Now at end of after_test section"
+      
