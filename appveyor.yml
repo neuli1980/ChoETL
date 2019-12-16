@@ -12,7 +12,7 @@ build:
   verbosity: minimal
 test_script:
 - cmd: >-
-    OpenCover.Console.exe -register:administrator -target:"nunit3-console.exe" -targetargs:"C:\projects\choetl\src\Test\ChoCSVReaderTest\bin\Debug\ChoCSVReaderTest.exe C:\projects\choetl\src\Test\ChoCSVReaderUnitTest\bin\Debug\ChoCSVReaderUnitTest.dll C:\projects\choetl\src\Test\ChoXmlReaderUnitTest\bin\Debug\ChoXmlReaderUnitTest.dll" -output:"coverage.xml"
+    OpenCover.Console.exe -register:administrator -target:"nunit3-console.exe" -targetargs:"C:\projects\choetl\src\Test\ChoCSVReaderTest\bin\Debug\ChoCSVReaderTest.exe C:\projects\choetl\src\Test\ChoCSVReaderUnitTest\bin\Debug\ChoCSVReaderUnitTest.dll C:\projects\choetl\src\Test\ChoXmlReaderUnitTest\bin\Debug\ChoXmlReaderUnitTest.dll" -filter:"+[*]* -[*Test]*" -output:"coverage.xml"
 after_test:
 - ps: |
     Write-Host "Now beginning of after_test section"
