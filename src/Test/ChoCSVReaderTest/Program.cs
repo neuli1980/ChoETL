@@ -728,6 +728,16 @@ somethingdownhere,thisisthelastuser,andthisisthelastpassword
 1	Las Vegas
 2	Dallas";
 
+
+byte[] asciiBytes = Encoding.ASCII.GetBytes(Environment.NewLine);
+
+for (int i = 0; i < value.Length; i++)
+
+
+    {
+        Console.WriteLine(value.Substring(i, 1) + " as ASCII value of: " + asciiBytes[i]);
+    }
+
             dynamic rec1 = null;
             dynamic rec2 = null;
             StringBuilder csv3 = new StringBuilder();
