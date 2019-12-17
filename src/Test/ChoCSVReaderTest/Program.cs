@@ -728,8 +728,8 @@ somethingdownhere,thisisthelastuser,andthisisthelastpassword
 1	Las Vegas
 2	Dallas";
 
-
-byte[] asciiBytes = Encoding.ASCII.GetBytes(Environment.NewLine);
+string value = Environment.NewLine;
+byte[] asciiBytes = Encoding.ASCII.GetBytes(value);
 
 for (int i = 0; i < value.Length; i++)
 
