@@ -720,6 +720,10 @@ somethingdownhere,thisisthelastuser,andthisisthelastpassword
 $"1	Tom	Las Vegas\r\n" +
 $"2	Mark	Dallas";
 
+expected = $"Id	Name	City
+1	Tom	Las Vegas
+2	Mark	Dallas";
+
             string CSV1 = @"Id	Name	City
 1	Tom	New York
 2	Mark	FairFax";
