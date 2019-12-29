@@ -62,7 +62,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoXmlToCSVConverterTest", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoJSONWriterTest", "..\Test\ChoJSONWriterTest\ChoJSONWriterTest.csproj", "{7EDD6D4C-1739-4A46-AE8F-76B12B0E0DF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoCSVFileDiff", "..\ChoCSVFileDiff\ChoCSVFileDiff.csproj", "{FBA69039-25D7-4602-BE03-3930687E3465}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoCSVFileDiff", "..\Test\ChoCSVFileDiff\ChoCSVFileDiff.csproj", "{FBA69039-25D7-4602-BE03-3930687E3465}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoCSVReaderUnitTest", "..\Test\ChoCSVReaderUnitTest\ChoCSVReaderUnitTest.csproj", "{AD108C7D-C0B4-41BA-B972-55E8642031E6}"
 EndProject
