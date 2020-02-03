@@ -747,6 +747,7 @@ somethingdownhere,thisisthelastuser,andthisisthelastpassword
             string expected = @"Id	Name	City
 1	Tom	Las Vegas
 2	Mark	Dallas";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             string CSV1 = @"Id	Name	City
 1	Tom	New York
@@ -1972,6 +1973,7 @@ B1;B2;B3;B4;B5
 C1;C2;C3;C4;C5
 D1;D2;D3;D4;D5
 E1;E2;E3;E4;E5";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             string csv = @"A1;B1;C1;D1;E1
 A2;B2;C2;D2;E2
@@ -2006,6 +2008,7 @@ b1,b2,b3,b4,b5
 c1,c2,c3,c4,c5
 d1,d2,d3,d4,d5
 e1,e2,e3,e4,e5";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             string csv = @"a1,b1,c1,d1,e1
 a2,b2,c2,d2,e2
@@ -2453,6 +2456,8 @@ ID, Name
             string expected = @"Test1,Test2
 1,David
 2,Bob";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             StringBuilder csvIn = new StringBuilder(@"ID,Name
 1, David
 2, Bob");
@@ -2478,6 +2483,7 @@ ID, Name
             string expected = @"Test,Test2
 1,David
 2,Bob";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             StringBuilder csvIn = new StringBuilder(@"ID,Name
 1, David
@@ -3431,8 +3437,40 @@ new ChoDynamicObject {{ "Year", "PVGIS (c) European Communities, 2001-2016" }, {
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        static void JSON2CSVWithSpecialCharsInHeader()
+        [Test]
+        public static void JSON2CSVWithSpecialCharsInHeader()
         {
+            string expected = @"[
+ {
+  ""Id.x"": 1,
+  ""Name"": ""Tom"",
+  ""City"": ""NY""
+ },
+ {
+  ""Id.x"": 2,
+  ""Name"": ""Mark"",
+  ""City"": ""NJ""
+ },
+ {
+  ""Id.x"": 3,
+  ""Name"": ""Lou"",
+  ""City"": ""FL""
+ },
+ {
+  ""Id.x"": 4,
+  ""Name"": ""Smith"",
+  ""City"": ""PA""
+ },
+ {
+  ""Id.x"": 5,
+  ""Name"": ""Raj"",
+  ""City"": ""DC""
+ }
+]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
+            string actual = null;
+
             string csv = @"Id.x, Name, City
 1, Tom, NY
 2, Mark, NJ
@@ -3450,7 +3488,9 @@ new ChoDynamicObject {{ "Year", "PVGIS (c) European Communities, 2001-2016" }, {
                     w.Write(p);
             }
 
-            Console.WriteLine(sb.ToString());
+            actual = sb.ToString();
+
+            Assert.AreEqual(expected, actual);
         }
 
         static void Main(string[] args)

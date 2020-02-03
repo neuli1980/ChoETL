@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using UnitTestHelper;
 
 namespace ChoXmlWriterTest
 {
@@ -104,6 +105,8 @@ namespace ChoXmlWriterTest
    ""avg"": 3819.55
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref json);
+
 
             //using (var r = new ChoJSONReader(new StringBuilder(json))
             //    )
@@ -111,7 +114,7 @@ namespace ChoXmlWriterTest
             //    Console.WriteLine(r.First().Dump());
             //}
 
-            actual= ChoJSONWriter.ToText(ChoJSONReader.LoadText(json,
+            actual = ChoJSONWriter.ToText(ChoJSONReader.LoadText(json,
                 new ChoJSONRecordConfiguration().Configure(c => c.JsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
                 {
                     DateParseHandling = Newtonsoft.Json.DateParseHandling.None
@@ -130,6 +133,8 @@ namespace ChoXmlWriterTest
     <Wed />
   </Days>
 </Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<string> s = new List<string>();
@@ -206,6 +211,8 @@ namespace ChoXmlWriterTest
     <Options>op 1,op 2</Options>
   </Choice>
 </Choices>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             var sb = new StringBuilder();
@@ -251,6 +258,8 @@ namespace ChoXmlWriterTest
     <address>dd</address>
   </XElement>
 </Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             dynamic address = new ChoDynamicObject();
@@ -367,6 +376,8 @@ namespace ChoXmlWriterTest
     <Value>33</Value>
   </DictionaryEntry>
 </DictionaryEntries>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             //Dictionary<int, string> list = new Dictionary<int, string>();
@@ -434,6 +445,8 @@ namespace ChoXmlWriterTest
     <Name />
   </Employee>
 </Employees>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<ExpandoObject> objs = new List<ExpandoObject>();
@@ -554,6 +567,8 @@ namespace ChoXmlWriterTest
     <Message><![CDATA[Test]]></Message>
   </Employee>
 </Employees>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ArrayList al = new ArrayList();

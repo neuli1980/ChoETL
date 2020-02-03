@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTestHelper;
 
 namespace ChoManifoldWriterTest
 {
@@ -63,6 +64,8 @@ namespace ChoManifoldWriterTest
             string expected = @"Raj     Mar212
 1|123124|65657657|05122019|DateText||0|0
 10,Mark,2/2/2001 12:00:00 AM,True,$100.00";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<object> objs = new List<object>();

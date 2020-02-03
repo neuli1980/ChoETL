@@ -15,6 +15,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
+using UnitTestHelper;
 
 namespace ChoJSONWriterTest
 {
@@ -186,6 +187,8 @@ public class ToTextConverter : IChoValueConverter
     ""DataDiNascita"": ""ddn""
   }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string codfis = "Example1";
@@ -257,6 +260,8 @@ public class ToTextConverter : IChoValueConverter
    }
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder msg = new StringBuilder();
@@ -316,6 +321,8 @@ public class ToTextConverter : IChoValueConverter
   ""Product Description -Used"": ""VAC""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string csv = @"""""|""Rep Employee Name""|""Ship To Customer Number""|""""|""Ship To Customer Name""|""Patient Last Name""|""Patient First Name""|""Patient Location""|""""|""""|""""|""""|""Serial Number""|""Product Description -Used""
@@ -363,6 +370,8 @@ public class ToTextConverter : IChoValueConverter
   ""Message"": ""A Message""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<data> _data = new List<data>();
@@ -414,6 +423,8 @@ public class ToTextConverter : IChoValueConverter
   ""SkuNumber"": ""SKU_100""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();
@@ -574,6 +585,8 @@ public class ToTextConverter : IChoValueConverter
    }
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -777,6 +790,8 @@ public class ToTextConverter : IChoValueConverter
   }
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"[
@@ -858,6 +873,8 @@ public class ToTextConverter : IChoValueConverter
   }
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();
@@ -892,6 +909,8 @@ public class ToTextConverter : IChoValueConverter
   ""Gender"": ""1""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();

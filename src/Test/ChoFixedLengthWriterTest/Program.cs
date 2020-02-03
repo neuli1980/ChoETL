@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTestHelper;
 using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
 
 namespace ChoFixedLengthWriterTest
@@ -66,6 +67,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Value
 20120
 " + DateTime.Now.Year.ToString() + "0";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<string> list = new List<string>();
@@ -86,6 +89,8 @@ namespace ChoFixedLengthWriterTest
         {
             string expected = @"0000000010Mark                     
 0000000200Lou                      ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "G";
@@ -118,6 +123,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id      Name      
 00000001Mark      
 00000002Jason     ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<EmployeeRecSimple> objs = new List<EmployeeRecSimple>();
@@ -150,6 +157,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id      Name      
 00000001Mark      
 00000002Jason     ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             using (var parser = new ChoFixedLengthWriter(FileNameQuickWriteTest2TXT).
@@ -180,6 +189,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id      Name      
 00000001Mark      
 00000002Jason     ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<ExpandoObject> objs = new List<ExpandoObject>();
@@ -214,6 +225,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id Name      JoinedDateASalary              
 010MARK      02/02/2001Y$100,000.00         
 000LOU       0000000000N                    ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "MM/dd/yyyy";
@@ -270,6 +283,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id   Name                Salary    
 00010Mark                $100,000.0
 00200Lou                 $150,000.0";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<EmployeeRecWithCurrency> objs = new List<EmployeeRecWithCurrency>();
@@ -320,6 +335,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id   Name                JoinedDateISalary    Status    
             00010Mark                2/2/2001  T$100,000.0Permanent 
 00200Lou                 10/23/1990F$150,000.0Contract  ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ChoTypeConverterFormatSpec.Instance.EnumFormat = ChoEnumFormatSpec.Description;
@@ -373,6 +390,8 @@ namespace ChoFixedLengthWriterTest
             string expected = @"Id   Name                JoinedDateISalary    Status    
 00010Mark                2/2/2001  Y$100,000.00         
 00020Lou                 10/23/1990N$150,000.02         ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             
             ChoTypeConverterFormatSpec.Instance.BooleanFormat = ChoBooleanFormatSpec.YOrN;

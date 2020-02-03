@@ -295,6 +295,8 @@ namespace ChoFixedLengthReaderTest
 00001Anne 1,2  
 00002John 1,2  
 00003Brit 1,2  ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string csv = @"AccountId, Name, Jan, Feb, Mar, Dec

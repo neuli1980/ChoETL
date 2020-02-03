@@ -505,6 +505,8 @@ namespace ChoXmlReaderTest
             string expected = @"CentreName,Country,CustomerId,DOB,Email,ExpiryDate
 Corporate Office,Austria,379,25/02/1991,farah@gmail.com,3/1/2020 8:01:00 AM
 Corporate Office,Egypt,988915,01/03/1986,hesh.a.metwally@gmail.com,7/1/2020 11:38:00 AM";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();
@@ -532,6 +534,8 @@ Corporate Office,Egypt,988915,01/03/1986,hesh.a.metwally@gmail.com,7/1/2020 11:3
             string expected = @"ARandomRoot-ARandomLOne-Id,ARandomRoot-ARandomLOne-OtherId,ARandomRoot-AnotherRandomLOne-ARandomLTwo-ARandomLTree-NumberOfElements,ARandomRoot-AnotherRandomLOne-ARandomLTwo-ARandomLTree-ARandomLFour-RandomDataOne,ARandomRoot-AnotherRandomLOne-ARandomLTwo-ARandomLTree-ARandomLFour-RandomDataTwo
 12,34,2,R1,10.12
 12,34,2,R2,9.8";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<ARandomRoot>
@@ -596,6 +600,8 @@ Corporate Office,Egypt,988915,01/03/1986,hesh.a.metwally@gmail.com,7/1/2020 11:3
         {
             string expected = @"targetMarketAttributes/targetMarket,targetMarketAttributes/alternateItemIdentificationList/alternateItemIdentification/0/agency,targetMarketAttributes/alternateItemIdentificationList/alternateItemIdentification/0/id,targetMarketAttributes/alternateItemIdentificationList/alternateItemIdentification/1/agency,targetMarketAttributes/alternateItemIdentificationList/alternateItemIdentification/1/id,targetMarketAttributes/shortDescriptionList/shortDescription/lang,targetMarketAttributes/shortDescriptionList/shortDescription/#text,targetMarketAttributes/productDescriptionList/productDescription/lang,targetMarketAttributes/productDescriptionList/productDescription/#text,targetMarketAttributes/additionalDescriptionList/additionalDescription/lang,targetMarketAttributes/additionalDescriptionList/additionalDescription/#text,targetMarketAttributes/isDispatchUnitList/isDispatchUnit,targetMarketAttributes/isInvoiceUnitList/isInvoiceUnit,targetMarketAttributes/isOrderableUnitList/isOrderableUnit,targetMarketAttributes/packagingMarkedReturnable,targetMarketAttributes/minimumTradeItemLifespanFromProductionList/minimumTradeItemLifespanFromProduction,targetMarketAttributes/nonGTINPalletHi,targetMarketAttributes/nonGTINPalletTi,targetMarketAttributes/numberOfItemsPerPallet,targetMarketAttributes/hasBatchNumber,targetMarketAttributes/productMarkedRecyclable,targetMarketAttributes/depth/uom,targetMarketAttributes/depth/#text,targetMarketAttributes/height/uom,targetMarketAttributes/height/#text,targetMarketAttributes/width/uom,targetMarketAttributes/width/#text,targetMarketAttributes/grossWeight/uom,targetMarketAttributes/grossWeight/#text,targetMarketAttributes/netWeight/uom,targetMarketAttributes/netWeight/#text,targetMarketAttributes/totalUnitsPerCase,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/0/code,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/0/scheme,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/1/code,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/1/scheme,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/2/code,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/2/scheme,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/3/code,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/3/scheme,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/4/code,targetMarketAttributes/preDefinedFlex/alternateClassificationList/alternateClassification/4/scheme,targetMarketAttributes/preDefinedFlex/brandOwnerAdditionalTradeItemIdentificationList/brandOwnerAdditionalTradeItemIdentification/brandOwnerAdditionalIdType,targetMarketAttributes/preDefinedFlex/brandOwnerAdditionalTradeItemIdentificationList/brandOwnerAdditionalTradeItemIdentification/brandOwnerAdditionalIdValue,targetMarketAttributes/preDefinedFlex/consumerSalesConditionList/consumerSalesCondition,targetMarketAttributes/preDefinedFlex/countryOfOriginList/countryOfOrigin,targetMarketAttributes/preDefinedFlex/dataCarrierList/dataCarrierTypeCode,targetMarketAttributes/preDefinedFlex/donationIdentificationNumberMarked,targetMarketAttributes/preDefinedFlex/doesTradeItemContainLatex,targetMarketAttributes/preDefinedFlex/exemptFromFDAPreMarketAuthorization,targetMarketAttributes/preDefinedFlex/fDA510KPremarketAuthorization,targetMarketAttributes/preDefinedFlex/fDAMedicalDeviceListingList/fDAMedicalDeviceListing,targetMarketAttributes/preDefinedFlex/gs1TradeItemIdentificationKey/code,targetMarketAttributes/preDefinedFlex/gs1TradeItemIdentificationKey/value,targetMarketAttributes/preDefinedFlex/isTradeItemManagedByManufactureDate,targetMarketAttributes/preDefinedFlex/manufacturerList/manufacturer/gln,targetMarketAttributes/preDefinedFlex/manufacturerDeclaredReusabilityType,targetMarketAttributes/preDefinedFlex/mRICompatibilityCode,targetMarketAttributes/preDefinedFlex/serialNumberLocationCodeList/serialNumberLocationCode,targetMarketAttributes/preDefinedFlex/tradeChannelList/tradeChannel,targetMarketAttributes/preDefinedFlex/tradeItemContactInfoList/tradeItemContactInfo/availableTime/lang,targetMarketAttributes/preDefinedFlex/tradeItemContactInfoList/tradeItemContactInfo/availableTime/#text,targetMarketAttributes/preDefinedFlex/tradeItemContactInfoList/tradeItemContactInfo/contactInfoGLN,targetMarketAttributes/preDefinedFlex/tradeItemContactInfoList/tradeItemContactInfo/contactType,targetMarketAttributes/preDefinedFlex/tradeItemContactInfoList/tradeItemContactInfo/targetMarketCommunicationChannel/communicationChannelList/communicationChannel/communicationChannelCode,targetMarketAttributes/preDefinedFlex/uDIDDeviceCount
 US,Example,31321,Example,1,en,Example,en,Example,en,Example,No,No,No,No,1825,0,0,0,Yes,No,in,12,in,8,in,12,lb,0.3213,lb,0.3213,1,Example,Example,Example,Example,Example,Example,Example,Example,Example,Example,Example,Example,FALSE,US,Example,No,No,No,Example,Example,Example,14,true,0100000000000,SINGLE_USE,UNSPECIFIED,NOT_MARKED,Example,en,2019-02-08T00:00:00,0000000000002,ABC,TELEPHONE,1";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder msg = new StringBuilder();
@@ -838,6 +844,8 @@ US,Example,31321,Example,1,en,Example,en,Example,en,Example,No,No,No,No,1825,0,0
  ""Request_Type"": ""CAPEX""
 }
 ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<object> source = new List<object>
@@ -858,6 +866,8 @@ US,Example,31321,Example,1,en,Example,en,Example,en,Example,No,No,No,No,1825,0,0
         {
             string expected = @"properties_Guid,properties_ProcessType,properties_Description
 fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<?xml version='1.0' encoding='UTF-8'?>
@@ -945,6 +955,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
     <City>DC</City>
   </Employee>
 </Employees>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string csv = @"Id, Name, City
@@ -1080,6 +1092,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
   }
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<?xml version=""1.0"" encoding=""UTF-8""?>
@@ -1137,6 +1151,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
   </Weight>
   </Patient>
 </ContrastDoseReport>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             
             string json = @"[
@@ -1415,6 +1431,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
     <anyType xmlns:q3=""http://www.w3.org/2001/XMLSchema"" p3:type=""q3:string"" xmlns:p3=""http://www.w3.org/2001/XMLSchema-instance"">2018-07-30</anyType>
   </ArrayOfAnyType>
 </List`1s>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<jobs><job>
@@ -1488,6 +1506,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
   ""Models"": null
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             using (var r = new ChoXmlReader(FileNameSample49XML)
@@ -1819,6 +1839,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
   }
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string ID = null;
@@ -1842,6 +1864,8 @@ fizeofnpj-dzeifjzenf-ezfizef,ZMIN,Test 2";
             string expected = @"overallResult,test
 Passed,ChoETL.ChoDynamicObject
 Passed,ChoETL.ChoDynamicObject";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             
             string xml = @"<session
@@ -1932,6 +1956,8 @@ Documents,,,
 Documents2,,,
 Documents2,User,,
 Documents2,Group,,";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<SPSecurableObject>
@@ -2063,6 +2089,8 @@ Documents2,Group,,";
   ""items"": null
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<RSS xmlns:jwplayer=""http://support.jwplayer.com/customer/portal/articles/1403635-media-format-reference#feeds"" version=""2.0"">
@@ -2197,6 +2225,8 @@ Documents2,Group,,";
   ""EmpID"": 1234
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<custs><CUST><First_Name>Luke</First_Name> <Last_Name>Skywalker</Last_Name> <ID><![CDATA[1234]]></ID> </CUST><CUST><First_Name>Luke</First_Name> <Last_Name>Skywalker</Last_Name> <ID><![CDATA[1234]]></ID> </CUST></custs>";
@@ -2229,6 +2259,8 @@ Documents2,Group,,";
   }
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<GetItemRequest>
@@ -2272,6 +2304,8 @@ Documents2,Group,,";
   ""LastName"": ""surname3""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<Employees xmlns:x1=""http://company.com/schemas"">
@@ -2361,6 +2395,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
 0,0,jack
 2,1,heath
 0,0,blake";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<?xml version=""1.0""?>
@@ -2422,6 +2458,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
   ]
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<Products>
@@ -2459,6 +2497,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
   <ColumnName>Value6</ColumnName></ColumnNames>
   </DataRow>
 </DataRows>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<root>
@@ -2492,6 +2532,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
         {
             string expected = @"A_TempFZ1_Set,A_TempHZ2_Set,A_TempHZ3_Set
 60,195,195";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<VWSRecipeFile>
@@ -2529,6 +2571,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
   }
  ]
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<Items>
@@ -2720,6 +2764,8 @@ Mon,32,45,/ig/images/weather/sunny.gif,Clear";
  ""ConsumerSecret"": null
 }
 ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<GetItemRequest xmlns:json=""http://james.newtonking.com/projects/json"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema"">
@@ -2806,6 +2852,8 @@ dateprodend=""20180319"" heureprodend=""12:12:45"" version=""1.21"" >
    }
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string xml = @"<GetItemRequest xmlns:xsi=""http://www.w3.org/2001/XMLSchema"">
@@ -2831,7 +2879,7 @@ dateprodend=""20180319"" heureprodend=""12:12:45"" version=""1.21"" >
         public static void Sample21()
         {
             
-            List<object> expected = new List<object>
+            List<string> expected = new List<string>
             {
                 @"{
  ""type"": ""MCS"",
@@ -2851,6 +2899,11 @@ dateprodend=""20180319"" heureprodend=""12:12:45"" version=""1.21"" >
  ""description"": ""desc4""
 }"
             };
+            expected[0] = StringHelper.EnsureCRLFLineEnding(expected[0]);
+            expected[1] = StringHelper.EnsureCRLFLineEnding(expected[1]);
+            expected[2] = StringHelper.EnsureCRLFLineEnding(expected[2]);
+            expected[3] = StringHelper.EnsureCRLFLineEnding(expected[3]);
+
             List<object> actual = new List<object>();
 
             string xml = @"<AdapterCards>
@@ -3206,6 +3259,8 @@ dateprodend=""20180319"" heureprodend=""12:12:45"" version=""1.21"" >
     <SelectedId @Value=""103"" />
   </SelectedIds>
 </Item1>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ChoDynamicObject src = new ChoDynamicObject("Item1");
@@ -3306,6 +3361,8 @@ dateprodend=""20180319"" heureprodend=""12:12:45"" version=""1.21"" >
             string expected = @"Column1,Column2,Column3
 A_TempFZ1_Set,A_TempFZ2_Set,A_TempFZ3_Set
 60,196,200";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             using (var parser = new ChoXmlReader(FileNamePivot1XML).WithXPath(@"//Values/*")
@@ -3525,6 +3582,8 @@ A_TempFZ1_Set,A_TempFZ2_Set,A_TempFZ3_Set
   ""view_total_available"": 2
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             int totalAvailable;

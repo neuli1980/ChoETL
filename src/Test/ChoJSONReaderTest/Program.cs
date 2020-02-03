@@ -904,6 +904,8 @@ namespace ChoJSONReaderTest
   <role>Admin</role></Roles>
   </dynamic>
 ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @" {
@@ -1281,6 +1283,8 @@ namespace ChoJSONReaderTest
             string expected = @"Id,Name,CreatedAt,UpdatedAt,Active
 39205,Sample1,2019-03-06T14:25:32Z,2019-03-06T14:25:31Z,true
 35907,Sample2,2019-02-21T09:33:25Z,2019-02-21T09:33:25Z,true";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -1427,6 +1431,8 @@ namespace ChoJSONReaderTest
             string expected = @"Column1,Column2,Column3,Column4,Column5,Column6,Column7,Column8,Column9,Column10
 A,B,C,D,E,F,G,H,I,J
 K,L,M,N,O,P,Q,R,S,T";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -2369,6 +2375,8 @@ K,L,M,N,O,P,Q,R,S,T";
         {
             string expected = @"name,age,cars_car1,cars_car2,cars_car3,cars_Country_0,cars_Country_1
 John,30,Ford,BMW,Fiat,USA,Mexico";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -2841,6 +2849,8 @@ John,30,Ford,BMW,Fiat,USA,Mexico";
             string expected = @"contactName,quantity,description,invoiceNumber
 Company,7,Beer No* 45.5 DIN KEG,C6188372
 Company,2,Beer Old 49.5 DIN KEG,C6188372";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -3361,6 +3371,7 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
     </ns2:processPayment>
   </soap:Body>
 </soap:Envelope>";
+            StringHelper.EnsureCRLFLineEnding(ref expectedXML);
 
             string expectedJSON = @"{
  ""soap:Envelope"": {
@@ -3486,6 +3497,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
    }
  }
 }";
+            StringHelper.EnsureCRLFLineEnding(ref expectedJSON);
+
             string actualXML = null;
             string actualJSON = null;
             using (var p = new ChoJSONReader(FileNameSample22JSON))
@@ -4836,6 +4849,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
     </ns3:collection>
   </ns3:collections>
 </ns3:Test_Service>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{""ns3:Test_Service"" : {""@xmlns:ns3"":""http://www.CCKS.org/XRT/Form"",""ns3:fname"":""mark"",""ns3:lname"":""joye"",""ns3:CarCompany"":""saab"",""ns3:CarNumber"":""9741"",""ns3:IsInsured"":""true"",""ns3:safty"":[""ABS"",""AirBags"",""childdoorlock""],""ns3:CarDescription"":""test Car"",""ns3:collections"":[{""ns3:XYZ"":""1"",""ns3:PQR"":""11"",""ns3:contactdetails"":[{""ns3:contname"":""DOM"",""ns3:contnumber"":""8787""},{""ns3:contname"":""COM"",""ns3:contnumber"":""4564"",""ns3:addtionaldetails"":[{""ns3:description"":""54657667""}]},{""ns3:contname"":""gf"",""ns3:contnumber"":""123"",""ns3:addtionaldetails"":[{""ns3:description"":""123""}]}]}]}}";
@@ -5361,6 +5376,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   ]
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -5671,6 +5688,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
         {
             string expected = @"Value_0_SRNO,Value_0_STK_IDN,Value_0_CERTIMG,Value_1_SRNO,Value_1_STK_IDN,Value_1_CERTIMG,Value_2_SRNO,Value_2_STK_IDN,Value_2_CERTIMG
 2814,1001101259,6262941723,2815,1001101269,6262941726,2816,1001101279,6262941729";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -5728,6 +5747,7 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
     <path>D:\Mizz\cars\</path>
   </XElement>
 </Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
             string actual = null;
 
             string json = @"{
@@ -5804,6 +5824,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   <items />
 </Emp></Emps>
 </XElement>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{""Emp"": [
@@ -5859,6 +5881,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
 ]
 }
 ";
+            StringHelper.EnsureCRLFLineEnding(ref json);
+
             StringBuilder sb = new StringBuilder();
             using (var p = ChoJSONReader.LoadText(json).Configure(c => c.SupportMultipleContent = true)
                 )
@@ -5904,6 +5928,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
     </items>
   </Channel>
 </RSS>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -5991,6 +6017,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   </value>
   </XElement>
 </Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             string json = @"
 [
@@ -6060,6 +6088,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
     </features>
   </car>
 </cars>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -6112,6 +6142,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   </x1:item>
   </x1:XElement>
 </x1:Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -6152,6 +6184,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
             string expected = @"Value
 2017-02-11
 2017-02-12";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -6237,6 +6271,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   ]
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();
@@ -6299,6 +6335,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
   </phoneNumber></phoneNumbers>
   </XElement>
 </Root>";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"[
@@ -6366,6 +6404,8 @@ Company,2,Beer Old 49.5 DIN KEG,C6188372";
         {
             string expected = @"Value_0_item_1,Value_0_item_2,Value_0_item_3,Value_0_item_4_0,Value_0_item_4_1,Value_0_item_5_sub_item_1,Value_0_item_5_sub_item_2_0,Value_0_item_5_sub_item_2_1,Value_1_item_1,Value_1_item_2,Value_1_item_4_0,Value_1_item_4_1,Value_1_item_4_2,Value_1_item_4_3,Value_1_item_4_4,Value_1_item_5_sub_item_1,Value_1_item_5_sub_item_2_0,Value_1_item_5_sub_item_2_1,Value_2_item_1,Value_2_item_2,Value_2_item_4_0,Value_2_item_4_1,Value_2_item_4_2,Value_2_item_4_3,Value_2_item_4_4,Value_2_item_5_sub_item_1,Value_2_item_5_sub_item_2_0,Value_2_item_5_sub_item_2_1,Value_3_item_1,Value_3_item_2,Value_3_item_4_0,Value_3_item_4_1,Value_3_item_5_sub_item_1,Value_3_item_5_sub_item_2_0,Value_3_item_5_sub_item_2_1,Value_4_item_1,Value_4_item_2,Value_4_item_4_0,Value_4_item_4_1,Value_4_item_5_sub_item_1,Value_4_item_5_sub_item_2_0,Value_4_item_5_sub_item_2_1,Value_5_item_1,Value_5_item_2,Value_5_item_4_0,Value_5_item_4_1,Value_5_item_5_sub_item_1,Value_5_item_5_sub_item_2_0,Value_5_item_5_sub_item_2_1,Value_6_item_1,Value_6_item_2,Value_6_item_4_0,Value_6_item_4_1,Value_6_item_5_sub_item_1,Value_6_item_5_sub_item_2_0,Value_6_item_5_sub_item_2_1
 value_11,value_12,value_13,sub_value_14,sub_value_15,sub_item_value_11,sub_item_value_12,sub_item_value_13,value_21,value_22,sub_value_24,sub_value_25,sub_value_15,sub_value_15,sub_value_15,sub_item_value_21,sub_item_value_22,sub_item_value_23,value_21,value_22,sub_value_24,sub_value_25,sub_value_15,sub_value_15,sub_value_15,sub_item_value_21,sub_item_value_22,sub_item_value_23,value_21,value_22,sub_value_24,sub_value_25,sub_item_value_21,sub_item_value_22,sub_item_value_23,value_21,value_22,sub_value_24,sub_value_25,sub_item_value_21,sub_item_value_22,sub_item_value_23,value_21,value_22,sub_value_24,sub_value_25,sub_item_value_21,sub_item_value_22,sub_item_value_23,value_21,value_22,sub_value_24,sub_value_25,sub_item_value_21,sub_item_value_22,sub_item_value_23";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"
@@ -6472,6 +6512,8 @@ value_11,value_12,value_13,sub_value_14,sub_value_15,sub_item_value_11,sub_item_
   ""Account Number"": ""ABC24689753""
  }
 ]";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string csv = @"Name,Description,Account Number
@@ -6500,6 +6542,8 @@ value_11,value_12,value_13,sub_value_14,sub_value_15,sub_item_value_11,sub_item_
             string expected = @"Account_Number
 ABC15797531
 ABC24689753";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"

@@ -18,6 +18,7 @@ using RangeAttribute = System.ComponentModel.DataAnnotations.RangeAttribute;
 using System.Xml;
 using System.Xml.Schema;
 using Newtonsoft.Json;
+using UnitTestHelper;
 
 namespace ChoCSVWriterTest
 {
@@ -49,6 +50,7 @@ namespace ChoCSVWriterTest
             // TODO: Check missing usage of ChoTypeConverterFormatSpec.Instance.DateTimeFormat
             string expected = @"""date_start"",""date_end"",""current_year""
 """ + DateTime.Today.ToString("d",CultureInfo.GetCultureInfo("en-CA")) + @""",""" + DateTime.Today.AddDays(2).ToString("d",CultureInfo.GetCultureInfo("en-CA")) + @""",""" + DateTime.Today.Year.ToString("d",CultureInfo.GetCultureInfo("en-CA")) + @"""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             StringBuilder msg = new StringBuilder();
             using (var writer = new ChoCSVWriter<CustomType>(msg).WithFirstLineHeader()
@@ -121,6 +123,8 @@ namespace ChoCSVWriterTest
             string expected = @"ClientName,DealNo,StartDate,EndDate,Volume
 ABC,59045599," + DateTime.Today.ToString("d") + "," + DateTime.Today.AddDays(2).ToString("d") + @",100
 ABC,59045599," + DateTime.Today.ToString("d") + "," + DateTime.Today.AddDays(2).ToString("d") + ",200";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoETLFrxBootstrap.IsSandboxEnvironment = true;
             StringBuilder sb = new StringBuilder();
@@ -221,6 +225,8 @@ ABC,59045599," + DateTime.Today.ToString("d") + "," + DateTime.Today.AddDays(2).
 44,487460,EVERHART RD,CORPUS CHRISTI,
 44,275543,EDWARD GARY,SAN MARCOS,4
 44,136811,MAGNOLIA AVE,SAN ANTONIO,1";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             using (var p = new ChoCSVReader<Site>(FileNameSample3CSV)
                 //.ClearFields()
@@ -247,6 +253,8 @@ ABC,59045599," + DateTime.Today.ToString("d") + "," + DateTime.Today.AddDays(2).
         {
             string expected = @"Value
 $1.00";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             StringBuilder sb = new StringBuilder();
 
@@ -279,6 +287,8 @@ $1.00";
             string expected = @"Key,Value
 1,Tom
 2,Mark";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             StringBuilder sb = new StringBuilder();
 
@@ -331,6 +341,8 @@ $1.00";
         {
             string expected = @"ID, House
 1,New York";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder csv = new StringBuilder();
@@ -362,6 +374,8 @@ $1.00";
             string expected = @"Id
 1
 2";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder sb = new StringBuilder();
@@ -386,6 +400,8 @@ $1.00";
 1
 2
 2";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<int?> l = new List<int?>();
@@ -414,6 +430,8 @@ $1.00";
 1,Raj
 2,Tom
 1,Raj";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             Hashtable ht = new Hashtable();
             ht.Add(1, "Raj");
@@ -441,6 +459,8 @@ $1.00";
         {
             string expected = @"Key,Name,Salary,Department
 1,TOm,10000,IT";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             Dictionary<int, Manager> ht = new Dictionary<int, Manager>();
@@ -466,6 +486,8 @@ $1.00";
         {
             string expected = @"Id,Name
 1,Tom";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             StringBuilder sb = new StringBuilder();
             using (var w = new ChoCSVWriter(sb)
                 .WithFirstLineHeader()
@@ -496,6 +518,7 @@ $1.00";
             string expected = @"Id,Name,Role,City
 1,Tom,Developer,Edison
 2,Mark,Analyst,Princeton";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
 
             var e1 = new Emp { Id = 1, Name = "Tom", City = "Edison", Role = "Developer" };
             var e2 = new Emp { Id = 2, Name = "Mark", City = "Princeton", Role = "Analyst" };
@@ -512,6 +535,8 @@ $1.00";
             string expected = @"Id,Name
 10,Mark
 200,Lou";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<EmployeeRecWithCurrency> objs = new List<EmployeeRecWithCurrency>();
@@ -562,6 +587,8 @@ $1.00";
             string expected = @"Id,Name
 20,John Smith
 21,""Jack in ,Da Box""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<EmployeeRecSimple1> objs = new List<EmployeeRecSimple1>()
@@ -578,6 +605,8 @@ $1.00";
         {
             string expected = @"20,John Smith
 21,""Jack in """"""""Da Box""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<EmployeeRecSimple> objs = new List<EmployeeRecSimple>()
@@ -594,6 +623,8 @@ $1.00";
         {
             string expected = @"1,Tom,NY
 2,Mark,NY";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string csv = @"Id, Name
 1, Tom
 2, Mark
@@ -631,6 +662,8 @@ $1.00";
 10/11/2016,test@gmail.com,Raj,100,Mark,609-333-2222,IVR,NJ
 10/11/2016,test@gmail.com,Raj,100,Mark,609-333-2222,IVR,NJ
 10/11/2016,test@gmail.com,Raj,100,Mark,609-333-2222,IVR,NJ";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             var bucket = new List<ExpandoObject>();
@@ -665,6 +698,8 @@ $1.00";
         {
             string expected = @"Id,Name,Address
 1,Mark,1 Main St.";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             StringBuilder csv = new StringBuilder();
@@ -811,6 +846,8 @@ B,c1,Math1,100,1,Mark,Physics,,,100,Tom,";
             string expected = @"Name,Foo,Bar
 Address,Foo's address,Bar's address
 Age,24,19";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string csv = @"Name, Address, Age
@@ -889,6 +926,8 @@ Age,24,19";
         {
             string expected = @"data_getUsers_0_userProfileDetail_userStatus_name,data_getUsers_0_userProfileDetail_userStatusDate,data_getUsers_0_userProfileDetail_lastAttestationDate,data_getUsers_0_userInformation_Id,data_getUsers_0_userInformation_lastName,data_getUsers_0_userInformation_suffix,data_getUsers_0_userInformation_gender,data_getUsers_0_userInformation_birthDate,data_getUsers_0_userInformation_ssn,data_getUsers_0_userInformation_ethnicity,data_getUsers_0_userInformation_languagesSpoken,data_getUsers_0_userInformation_personalEmail,data_getUsers_0_userInformation_otherNames,data_getUsers_0_userInformation_userType_name,data_getUsers_0_userInformation_primaryuserState,data_getUsers_0_userInformation_otheruserState_0,data_getUsers_0_userInformation_practiceSetting,data_getUsers_0_userInformation_primaryEmail
 Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/1/1970 1:01:00 AM,000000000,INVALID_REFERENCE_VALUE,,,,APN,CO,CO,INPATIENT_ONLY,*****@*****.com";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -945,6 +984,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
 13611074,********,,,,AZ
 13611082,******,Estonian,Faroese,English,AK|CA|GA|IL|NC|NV|TX|OK|OR|MA|MN|MS|WA|WV|CO
 13611227,**,Latvian,English,Fiji,CO|GA|IL|MN|MS|MA|NC|NV|OK|OR|WA|WV";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             string json = @"{
@@ -1265,6 +1306,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Value2
 1/1/2012
 1/1/" + DateTime.Now.Year;
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             List<string> list = new List<string>();
             list.Add("1/1/2012");
@@ -1288,6 +1331,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary
 10,Mark,02 02 2001,Yes,""$100,000.00""
 200,Tom,23 10 1990,No,""$150,000.00""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             List<dynamic> objs = new List<dynamic>();
@@ -1328,6 +1373,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary
 ""10"",""Mark"",""Feb 02, 2001"",""True"",""$100,000.00""
 ""200"",""Lou"",""Oct 23, 1990"",""False"",""$150,000.00""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "MMM dd, yyyy";
 
@@ -1372,6 +1419,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary,Status
 ""10"",""Mark"",""2/2/2001"",""Y"",""$100,000.00"",""Permanent""
 ""200"",""Lou"",""10/23/1990"",""N"",""$150,000.00"",""Contract""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
 
             ChoTypeConverterFormatSpec.Instance.BooleanFormat = ChoBooleanFormatSpec.YOrN;
@@ -1430,6 +1479,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary,Status
 ""10"",""Mark"",""2/2/2001 12:00:00 AM"",""True"",""$100,000.00"",""Permanent""
 ""200"",""Lou"",""10/23/1990 12:00:00 AM"",""False"",""$150,000.00"",""Contract""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoTypeConverterFormatSpec.Instance.EnumFormat = ChoEnumFormatSpec.Description;
 
@@ -1480,6 +1531,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,Salary
 ""10"",""Mark"",""$100,000.00""
 ""200"",""Lou"",""$150,000.00""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             List<EmployeeRecWithCurrency> objs = new List<EmployeeRecWithCurrency>();
             EmployeeRecWithCurrency rec1 = new EmployeeRecWithCurrency();
@@ -1518,6 +1571,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary
 ""10"",""Mark"",""2/2/2001"",""True"",""$100,000.000""
 ""200"",""Lou"",""10/23/1990"",""False"",""$150,000.000""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoTypeConverterFormatSpec.Instance.CurrencyFormat = "C3";
 
@@ -1562,6 +1617,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Id,Name,JoinedDate,IsActive,Salary
 10,Mark,2/2/2001,Y,""$100,000.00""
 200,Lou,10/23/1990,N,""$150,000.00""";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "d";
             ChoTypeConverterFormatSpec.Instance.BooleanFormat = ChoBooleanFormatSpec.YOrN;
@@ -1604,6 +1661,8 @@ Expired,4/4/2017 9:48:25 AM,2/1/2019 9:50:42 AM,13610875,************,,FEMALE,1/
             string expected = @"Shape,Id,Name,JoinedDate,Salary,IsActive,Status
 Circle,10,Mark,2/2/2001,$0.00,Y," + "\0" + @"
 Circle,200,Lou,10/23/1990,$0.00,N," + "\0";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "d";
             ChoTypeConverterFormatSpec.Instance.BooleanFormat = ChoBooleanFormatSpec.YOrN;
@@ -1723,6 +1782,8 @@ Circle,200,Lou,10/23/1990,$0.00,N," + "\0";
             string expectedArrayAndList = @"Shape,Id,Name,JoinedDate,Salary,IsActive,Status
 Circle,10,Mark,1/1/0001 12:00:00 AM,$0.00,No," + "\0" + @"
 Circle,200,Lou,1/1/0001 12:00:00 AM,$0.00,No," + "\0";
+            StringHelper.EnsureCRLFLineEnding(ref expectedArrayAndList);
+
             string actualArray = null;
             string actualList = null;
             string expectedOnce = @"Shape,Id,Name,JoinedDate,Salary,IsActive,Status
@@ -1768,6 +1829,8 @@ Circle,10,Mark,1/1/0001 12:00:00 AM,$0.00,No," + "\0";
             string expected = @"Shape,Id,Name,JoinedDate,Salary,IsActive,Status
 Circle,10,Mark,1/1/0001 12:00:00 AM,$0.00,false," + "\0" + @"
 Circle,200,Lou,1/1/0001 12:00:00 AM,$0.00,false," + "\0";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             List<string> expectedPropertyNames = new List<string> { "Shape", "Id", "Name", "JoinedDate", "Salary", "IsActive", "Status", "Shape", "Id", "Name", "JoinedDate", "Salary", "IsActive", "Status" };
             List<string> actualPropertyNames = new List<string>();
@@ -1961,6 +2024,8 @@ Circle,200,Lou,1/1/0001 12:00:00 AM,$0.00,false," + "\0";
         {
             string expected = @"1,Mark
 2,Jason";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             using (var stream = new MemoryStream())
             using (var reader = new StreamReader(stream))
@@ -2012,6 +2077,8 @@ Circle,200,Lou,1/1/0001 12:00:00 AM,$0.00,false," + "\0";
         {
             string expected = @"1,Mark
 2,Jason";
+            StringHelper.EnsureCRLFLineEnding(ref expected);
+
             string actual = null;
             List<ExpandoObject> objs = new List<ExpandoObject>();
             dynamic rec1 = new ExpandoObject();
