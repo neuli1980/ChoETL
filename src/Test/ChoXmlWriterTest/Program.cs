@@ -167,17 +167,16 @@ namespace ChoXmlWriterTest
         {
             string expected = @"<Choices>
   <Choice>
-    <Emp>
+  <Emp>
     <Id>0</Id>
     <Name>Raj</Name>
   </Emp>
-    <Ids>
+  <Ids>
     <int>1</int>
     <int>2</int>
     <int>3</int>
   </Ids>
-    <EmpArrs>
-      <Emp>
+  <EmpArrs><Emp>
     <Id>1</Id>
     <Name>Tom</Name>
   </Emp>
@@ -185,11 +184,10 @@ namespace ChoXmlWriterTest
     <Id>2</Id>
     <Name>Mark</Name>
   </Emp>
-  </EmpArrs>
-    <Options>op 1,op 2</Options>
+  </EmpArrs><Options>op 1,op 2</Options>
   </Choice>
   <Choice>
-    <Emp>
+  <Emp>
     <Id>0</Id>
     <Name>Raj</Name>
   </Emp>
@@ -198,8 +196,7 @@ namespace ChoXmlWriterTest
     <int>2</int>
     <int>3</int>
   </Ids>
-    <EmpArrs>
-      <Emp>
+  <EmpArrs><Emp>
     <Id>1</Id>
     <Name>Tom</Name>
   </Emp>
@@ -541,15 +538,15 @@ namespace ChoXmlWriterTest
     <Name>Mark</Name>
     <IsActive>true</IsActive>
     <Message><![CDATA[Test]]></Message>
-    <Array>
+  <Array>
     <anyType xmlns:q1=""http://www.w3.org/2001/XMLSchema"" p3:type=""q1:int"" xmlns:p3=""http://www.w3.org/2001/XMLSchema-instance"">1</anyType>
     <anyType xmlns:q2=""http://www.w3.org/2001/XMLSchema"" p3:type=""q2:string"" xmlns:p3=""http://www.w3.org/2001/XMLSchema-instance"">abc</anyType>
   </Array>
-    <Lint>
+  <Lint>
     <int>1</int>
     <int>2</int>
   </Lint>
-    <Dict>
+  <Dict>
     <item>
       <key>
         <int>1</int>
@@ -558,8 +555,7 @@ namespace ChoXmlWriterTest
         <string>abc</string>
       </value>
     </item>
-  </Dict>
-  </Employee>
+  </Dict></Employee>
   <Employee>
     <Id>2</Id>
     <Name>Jason</Name>
