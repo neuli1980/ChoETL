@@ -1,4 +1,4 @@
-﻿using ChoETL;
+using ChoETL;
 using SharpYaml.Serialization;
 using System;
 using System.Linq;

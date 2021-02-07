@@ -1,4 +1,4 @@
-﻿using ChoETL;
+using ChoETL;
 using System;
 using System.Linq;
 using System.ComponentModel;

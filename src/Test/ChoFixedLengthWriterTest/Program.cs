@@ -1,4 +1,4 @@
-ï»¿using ChoETL;
+using ChoETL;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace ChoFixedLengthWriterTest
             ChoXmlSettings.Reset();
         }
 
-        //[Test]
+        [Test]
         public static void TrimTest()
 		{
             string expected = @"0000000000Tom 23423432432 432432423";
@@ -60,7 +60,7 @@ namespace ChoFixedLengthWriterTest
 			public string Name { get; set; }
 		}
 
-        //[Test]
+        [Test]
         public static void SaveStringList()
         {
             string expected = @"Value
@@ -81,7 +81,7 @@ namespace ChoFixedLengthWriterTest
             Assert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void ToTextTest()
         {
             string expected = @"0000000010Mark                     
@@ -112,7 +112,7 @@ namespace ChoFixedLengthWriterTest
         public static string FileNameQuickWriteTest2TXT => "QuickWriteTest2.txt";
         public static string FileNameSaveStringListTXT => "SaveStringList.txt";
 
-        //[Test]
+        [Test]
         public static void POCOTest()
         {
             string expected = @"Id      Name      
@@ -144,7 +144,7 @@ namespace ChoFixedLengthWriterTest
             Assert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickWriteTest2()
         {
             string expected = @"Id      Name      
@@ -174,7 +174,7 @@ namespace ChoFixedLengthWriterTest
             Assert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickWriteTest()
         {
             string expected = @"Id      Name      
@@ -206,7 +206,7 @@ namespace ChoFixedLengthWriterTest
 
         }
 
-        //[Test]
+        [Test]
         public static void QuickDynamicTest()
         {
             // TODO: Check missing usage of ChoTypeConverterFormatSpec.Instance.DateTimeFormat
@@ -264,7 +264,7 @@ namespace ChoFixedLengthWriterTest
             public ChoCurrency Salary { get; set; }
         }
 
-        //[Test]
+        [Test]
         public static void CurrencyPOCOTest()
         {
             string expected = @"Id   Name                Salary    
@@ -305,15 +305,15 @@ namespace ChoFixedLengthWriterTest
         }
         public enum EmployeeType
         {
-            [Description("FullÂ TimeÂ Employee")]
+            [Description("Full Time Employee")]
             Permanent = 0,
-            [Description("TemporaryÂ Employee")]
+            [Description("Temporary Employee")]
             Temporary = 1,
-            [Description("ContractÂ Employee")]
+            [Description("Contract Employee")]
             Contract = 2
         }
 
-        //[Test]
+        [Test]
         public static void EnumTest()
         {
             // TODO: Check missing usage of ChoTypeConverterFormatSpec.Instance.DateTimeFormat
@@ -367,7 +367,7 @@ namespace ChoFixedLengthWriterTest
             Assert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void BoolTest()
         {
             string expected = @"Id   Name                JoinedDateISalary    Status    
@@ -417,7 +417,7 @@ namespace ChoFixedLengthWriterTest
 
             Assert.AreEqual(expected, actual);
         }
-        //[Test]
+        [Test]
         public static void DateTimeDynamicTest()
         {
 /*            string expected = @"     Name                JoinedDateISalary    
@@ -425,7 +425,7 @@ namespace ChoFixedLengthWriterTest
      Lou                 Oct 23, 19F$150,000.0";
             string actual = null;
 */
-            ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "MMMÂ dd,Â yyyy";
+            ChoTypeConverterFormatSpec.Instance.DateTimeFormat = "MMM dd, yyyy";
 
             List<ExpandoObject> objs = new List<ExpandoObject>();
             dynamic rec1 = new ExpandoObject();

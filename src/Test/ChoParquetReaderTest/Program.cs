@@ -1,4 +1,4 @@
-﻿using ChoETL;
+using ChoETL;
 using System;
 using System.Data;
 using System.Text;

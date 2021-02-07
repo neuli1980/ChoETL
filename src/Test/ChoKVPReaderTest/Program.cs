@@ -1,4 +1,4 @@
-﻿using ChoETL;
+using ChoETL;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -67,7 +67,7 @@ namespace ChoKVPReaderTest
             ChoXmlSettings.Reset();
         }
 
-        //[Test]
+        [Test]
         public static void QuickTest()
         {
             using (var r = new ChoKVPReader(FileNameSampleICS))
@@ -86,40 +86,40 @@ namespace ChoKVPReaderTest
 
         }
 
-        //[Test]
+        [Test]
         public static void LoadINIFileTest()
         {
             List<object> expected = new List<object>
             {
                 new ChoDynamicObject{
-                    { "102", "Προβολή" } ,
-                    {"103", "Επιλογές" } ,
-                    {"104", "Απεγκαταστάτης" } ,
-                    {"105", "Εργαλεία" } ,
-                    {"106", "Λειτουργία Ανίχνευσης" } ,
-                    {"107", "Κατάλογος" } ,
-                    {"108", "Εικονίδια" } ,
-                    {"109","Λεπτομέρειες" } ,
-                    {"110","Απεγκατάσταση" } ,
-                    {"111","Απομάκρυνση Καταχώρησης" } ,
-                    {"112","Ανανέωση" } ,
-                    {"113","Είστε βέβαιοι πως θέλετε να απομακρύνετε της επιλεγμένη καταχώρηση;" } ,
-                    {"114","Είστε βέβαιοι πως θέλετε να απεγκαταστήσετε την επιλεγμένη εφαρμογή;" } ,
-                    {"115","Ενημέρωση" } ,
-                    {"116","Βοήθεια" },
-                    {"117","Βοήθεια Τρέχοντος Εργαλείου..." },
-                    {"118","Αρχική σελίδα..." } ,
-                    {"119","Περί..." } ,
-                    {"120","Δεν είστε Διαχειριστής!" },
-                    {"121","Είστε βέβαιοι ότι θέλετε να αφαιρέσετε το επιλεγμένο στοιχείο συστήματος?\\nSTOP, εκτός και είστε βέβαιοι τι κάνετε!" } ,
-                    {"122", @"Το Revo Uninstaller σας παρουσιάζει όλα τα εγκατεστημένα προγράμματα και συστατικά για όλους τους χρήστες. Στον τύπο άποψης ""Λεπτομέρειες"", ή από τον κατάλογο επιλογών, μπορείτε να έχετε πρόσβαση σε πρόσθετες πληροφορίες (συνδέσεις και ιδιότητες για τις εγκαταστάσεις). Ένα βασικό χαρακτηριστικό γνώρισμα του Revo Uninstaller είναι η ""Λειτουργία Ανίχνευσης"". Αυτή η κατάσταση σας δίνει την ευελιξία να απεγκαταστήσετε, σταματήσετε, διαγράψετε ή να θέσετε εκτός λειτουργίας, προγράμματα από την αυτόματη εκκίνηση, με ένα κλικ." } ,
-                    {"123","Αναζήτηση:" } ,
-                    {"124","Εύρεση:" } ,
-                    {"125","Είστε βέβαιοι ότι θέλετε να αφαιρέσετε το επιλεγμένο στοιχείο συστήματος από το Μητρώο?\\nΤο στοιχείο πιθανώς είναι απαραίτητο στο λειτουργικό!" } ,
-                    {"126","δεν πρόκειται να εκκινήσει αυτόματα ξανά!" } ,
-                    {"127","είναι ρυθμισμένο σε αυτόματη εκκίνηση" } ,
-                    {"128","%s είναι εγκατεστημένο στην ίδια θέση με %s!\\nΠρόκειται να βρεθούν κατάλοιπα και από τις δύο εφαρμογές. Επιλέξτε με προσοχή ποιά θέλετε να απομακρύνετε!" } ,
-                    {"129","Εξαναγκασμένη Απεγκατάσταση" } }
+                    { "102", "???�???" } ,
+                    {"103", "?p??????" } ,
+                    {"104", "?pe??atast?t??" } ,
+                    {"105", "???a?e?a" } ,
+                    {"106", "?e?t?????a ?????e?s??" } ,
+                    {"107", "?at??????" } ,
+                    {"108", "??????d?a" } ,
+                    {"109","?ept?�??e?e?" } ,
+                    {"110","?pe??at?stas?" } ,
+                    {"111","?p?�?????s? ?ata????s??" } ,
+                    {"112","??a???s?" } ,
+                    {"113","??ste �?�a??? p?? ???ete ?a ap?�a????ete t?? ep??e?�??? ?ata????s?;" } ,
+                    {"114","??ste �?�a??? p?? ???ete ?a ape??atast?sete t?? ep??e?�??? efa?�???;" } ,
+                    {"115","???�???s?" } ,
+                    {"116","????e?a" },
+                    {"117","????e?a ??????t?? ???a?e???..." },
+                    {"118","?????? se??da..." } ,
+                    {"119","?e??..." } ,
+                    {"120","?e? e?ste ??a?e???st??!" },
+                    {"121","??ste �?�a??? ?t? ???ete ?a afa???sete t? ep??e?�??? st???e?? s?st?�at???\\nSTOP, e?t?? ?a? e?ste �?�a??? t? ???ete!" } ,
+                    {"122", @"?? Revo Uninstaller sa? pa???s???e? ??a ta e??atest?�??a p?????��ata ?a? s?stat??? ??a ????? t??? ???ste?. St?? t?p? ?p???? ""?ept?�??e?e?"", ? ap? t?? ?at????? ep??????, �p??e?te ?a ??ete p??s�as? se p??s?ete? p????f???e? (s??d?se?? ?a? ?d??t?te? ??a t?? e??atast?se??). ??a �as??? ?a?a?t???st??? ?????s�a t?? Revo Uninstaller e??a? ? ""?e?t?????a ?????e?s??"". ??t? ? ?at?stas? sa? d??e? t?? e?e????a ?a ape??atast?sete, sta�at?sete, d?a????ete ? ?a ??sete e?t?? ?e?t?????a?, p?????��ata ap? t?? a?t?�at? e?????s?, �e ??a ????." } ,
+                    {"123","??a??t?s?:" } ,
+                    {"124","???es?:" } ,
+                    {"125","??ste �?�a??? ?t? ???ete ?a afa???sete t? ep??e?�??? st???e?? s?st?�at?? ap? t? ??t????\\n?? st???e?? p??a??? e??a? apa?a?t?t? st? ?e?t???????!" } ,
+                    {"126","de? p???e?ta? ?a e?????se? a?t?�ata ?a??!" } ,
+                    {"127","e??a? ???�?s�??? se a?t?�at? e?????s?" } ,
+                    {"128","%s e??a? e??atest?�??? st?? ?d?a ??s? �e %s!\\n????e?ta? ?a �?e???? ?at????pa ?a? ap? t?? d?? efa?�????. ?p????te �e p??s??? p??? ???ete ?a ap?�a????ete!" } ,
+                    {"129","??a?a??as�??? ?pe??at?stas?" } }
             };
             object[] actual = null;
 
@@ -138,7 +138,7 @@ namespace ChoKVPReaderTest
             CollectionAssert.AreEqual(expected, actual.ToList());
         }
 
-        //[Test]
+        [Test]
         public static void LoadTest()
         {
             Assert.Warn(@"Original file ""C:\Users\raj\Documents\GitHub\ChoETL\src\Test\ChoKVPReaderTest\Maldives Holidays Calendar.ics"" not found. Used Copy (2) instead. Please check.");
@@ -781,7 +781,7 @@ new ChoDynamicObject {
         
         public static string FileNameHellenicINI => "hellenic.ini";
 
-        //[Test]
+        [Test]
         public static void ConvertToCSVTest()
         {
             Assert.Warn(@"Original file ""C: \Users\raj\Documents\GitHub\ChoETL\src\Test\ChoKVPReaderTest\Maldives Holidays Calendar.ics"" not found. Used Copy (2) instead. Please check.");
@@ -802,7 +802,7 @@ new ChoDynamicObject {
             FileAssert.AreEqual(FileNameConvertToCSVTestExpectedCSV, FileNameConvertToCSVTestActualCSV);
         }
 
-        //[Test]
+        [Test]
         public static void ConvertToCSVWithHeaderTest()
         {
             Assert.Warn(@"Original File ""C: \Users\raj\Documents\GitHub\ChoETL\src\Test\ChoKVPReaderTest\Maldives Holidays Calendar.ics"" not found. Used Copy (2) instead. Please check.");
@@ -823,7 +823,7 @@ new ChoDynamicObject {
             FileAssert.AreEqual(FileNameConvertToCSVWithHeaderTestExpectedCSV, FileNameConvertToCSVWithHeaderTestActualCSV);
         }
 
-        //[Test]
+        [Test]
         public static void LoadPOCOTest()
         {
             Assert.Warn(@"Original file ""C:\Users\raj\Documents\GitHub\ChoETL\src\Test\ChoKVPReaderTest\Maldives Holidays Calendar.ics"" not found. Used Copy (2) instead. Please check.");
@@ -845,7 +845,7 @@ new ChoDynamicObject {
             // TODO: Move line 426 to 432 in file ChoKVPRecordReader should solve that problem
         }
 
-        //[Test]
+        [Test]
         public static void QuickDynamicTest()
         {
             List<object> expected = new List<object>

@@ -1,4 +1,4 @@
-﻿using ChoETL;
+using ChoETL;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace ChoXmlToCSVConverterTest
             ChoXmlSettings.Reset();
         }
 
-        //[Test]
+        [Test]
         public static void XMLToCSVConverterTest()
         {
             using (var xmlReader = new ChoXmlReader("Users.xml")

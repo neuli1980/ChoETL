@@ -1,4 +1,4 @@
-ï»¿using ChoETL;
+using ChoETL;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -252,7 +252,7 @@ namespace ChoFixedLengthReaderTest
             ChoXmlSettings.Reset();
         }
 
-        //[Test]
+        [Test]
         public static void AABillingTest()
         {
             List<object> expected = new List<object>
@@ -288,7 +288,7 @@ namespace ChoFixedLengthReaderTest
             public List<string> lastTwelveMonths { get; set; }
         }
 
-        //[Test]
+        [Test]
         public static void NestedObjectTest()
         {
             string expected = @"ID   Name Mon,T
@@ -388,23 +388,23 @@ namespace ChoFixedLengthReaderTest
             }
         }
 
-        //[Test]
+        [Test]
         public static void Test1()
         {
             List<object> expected = new List<object> {
-                new Person{ Name = "Filip", Surname = "MalÃ½n", Gender = "Male", OrderNum = 12, BirthDate = new DateTime(1994,2,18) },
-                new Person{ Name = "BoÅ¾ena", Surname = "NÄ›mcovÃ¡", Gender = "Female", OrderNum = 18, BirthDate = new DateTime(1820,2,4)},
-                new Person{ Name = "Jan", Surname = "Å½iÅ¾ka", Gender = "Male", OrderNum = 7, BirthDate = new DateTime(1360,9,19)},
+                new Person{ Name = "Filip", Surname = "Malýn", Gender = "Male", OrderNum = 12, BirthDate = new DateTime(1994,2,18) },
+                new Person{ Name = "Božena", Surname = "Nemcová", Gender = "Female", OrderNum = 18, BirthDate = new DateTime(1820,2,4)},
+                new Person{ Name = "Jan", Surname = "Žižka", Gender = "Male", OrderNum = 7, BirthDate = new DateTime(1360,9,19)},
                 new Person{ Name = "Che", Surname = "Guevara", Gender = "Male", OrderNum = 27, BirthDate = new DateTime(1928,6,14)},
-                new Person{ Name = "Antoinede", Surname = "Saint-ExupÃ©ry", Gender = "Male", OrderNum = 15, BirthDate = new DateTime(1900,6,29)}
+                new Person{ Name = "Antoinede", Surname = "Saint-Exupéry", Gender = "Male", OrderNum = 15, BirthDate = new DateTime(1900,6,29)}
             };
             List<object> actual = new List<object>();
 
-            string txt = @"Filip    MalÃ½n        Male  1218-02-1994
-BoÅ¾ena   NÄ›mcovÃ¡      Female1804-02-1820
-Jan      Å½iÅ¾ka        Male  0719-09-1360
+            string txt = @"Filip    Malýn        Male  1218-02-1994
+Božena   Nemcová      Female1804-02-1820
+Jan      Žižka        Male  0719-09-1360
 Che      Guevara      Male  2714-06-1928
-AntoinedeSaint-ExupÃ©ryMale  1529-06-1900";
+AntoinedeSaint-ExupéryMale  1529-06-1900";
 
             foreach (var rec in ChoFixedLengthReader<Person>.LoadText(txt))
                 actual.Add(rec);
@@ -437,7 +437,7 @@ AntoinedeSaint-ExupÃ©ryMale  1529-06-1900";
             }
         }
 
-        //[Test]
+        [Test]
         public static void Test2()
         {
             List<object> expected = new List<object>
@@ -527,7 +527,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
                 .Configure(c => c.FileHeaderConfiguration.TrimOption = ChoFieldValueTrimOption.None))
             {
                 Console.WriteLine(rec.id);
-                //Console.WriteLine("{0}", rec[" id  Â  Â "]);
+                //Console.WriteLine("{0}", rec[" id     "]);
                 //Console.WriteLine(rec[0]);
             }
             return;
@@ -539,7 +539,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             QuickLoad();
         }
 
-        //[Test]
+        [Test]
         public static void QuickLoad()
         {
             Stopwatch[] sw = new Stopwatch[5];
@@ -568,7 +568,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             Assert.Less(sw.Average(x => x.Elapsed.TotalSeconds), 1);
         }
 
-        //[Test]
+        [Test]
         public static void QuickDataTableTest()
         {
             DataTable expected = new DataTable();
@@ -593,7 +593,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
 
             DataTableAssert.AreEqual(expected, actual);
         }
-        //[Test]
+        [Test]
         public static void POCODataTableTest()
         {
             DataTable expected = new DataTable();
@@ -622,7 +622,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             DataTableAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void DynamicApproach()
         {
             List<object> expected = new List<object> {
@@ -659,7 +659,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void LoadTextTest()
         {
             List<object> expected = new List<object> {
@@ -668,7 +668,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             };
             List<object> actual = new List<object>();
 
-            string txt = "Id Â  Â  Â Name Â  Â  Â \r\n1       Carl      \r\n2       Mark      ";
+            string txt = "Id      Name      \r\n1       Carl      \r\n2       Mark      ";
 
             foreach (var e in ChoFixedLengthReader.LoadText(txt).WithFirstLineHeader())
                 actual.Add(e);
@@ -676,7 +676,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void CodeFirstApproach()
         {
             List<EmployeeRecSimple> expected = new List<EmployeeRecSimple> {
@@ -691,7 +691,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader<EmployeeRecSimple>(reader).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -705,7 +705,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickDynamicLoadTest()
         {
             List<object> expected = new List<object> {
@@ -720,7 +720,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader(reader).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -734,7 +734,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickDynamicLoadTestUsingIterator()
         {
             List<object> expected = new List<object> {
@@ -747,7 +747,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var reader = new StreamReader(stream))
             using (var writer = new StreamWriter(stream))
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -763,7 +763,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
         public static string FileNameEmpTXT => "Emp.txt";
         public static string FileNameAccountsTXT => "Accounts.txt";
 
-        //[Test]
+        [Test]
         public static void MultiLineTest()
         {
             List<object> expected = new List<object>
@@ -784,7 +784,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void ConfigFirstApproachReadAsDynamicRecords()
         {
             List<object> expected = new List<object>{
@@ -803,7 +803,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader(reader, config).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -818,7 +818,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void ConfigFirstApproachReadAsTypedRecords()
         {
             List<object> expected = new List<object>{
@@ -837,7 +837,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader<EmployeeRecSimple>(reader, config).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -852,7 +852,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void CodeFirstWithDeclarativeApproachRead()
         {
             List<EmployeeRec> expected = new List<EmployeeRec> {
@@ -867,7 +867,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader<EmployeeRec>(reader).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -881,7 +881,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickTest()
         {
             object row = null;
@@ -890,7 +890,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             using (var writer = new StreamWriter(stream))
             using (var parser = new ChoFixedLengthReader<EmployeeRecWithCurrency>(reader).WithFirstLineHeader())
             {
-                writer.WriteLine("Id Â  Â  Â Name Â  Â  Â ");
+                writer.WriteLine("Id      Name      ");
                 writer.WriteLine("1       Carl      ");
                 writer.WriteLine("2       Mark      ");
                 writer.Flush();
@@ -900,7 +900,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             }
         }
 
-        //[Test]
+        [Test]
         public static void CodeFirstWithDeclarativeApproach()
         {
             List<CreditBalanceRecord> expected = new List<CreditBalanceRecord> {
@@ -928,7 +928,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void CodeFirstWithDeclarativeApproach2()
         {
             List<CreditBalanceRecord> expected = new List<CreditBalanceRecord> {
@@ -954,7 +954,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void FallbackValueUsedViaCodeFirstApproach()
         {
             EmployeeRecSimpleFallback row = null;
@@ -976,7 +976,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             Assert.Fail("Not sure, how to parse the correct position for Salary");
         }
 
-        //[Test]
+        [Test]
         public static void FallbackValueUsedViaConfigFirstApproach()
         {
             List<object> expected = new List<object> {
@@ -1013,7 +1013,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void DefaultValueUsedViaCodeFirstApproach()
         {
             EmployeeRecSimple row = null;
@@ -1035,7 +1035,7 @@ EDSON EDUARD MOZART                      1286664 500-34";
             Assert.Fail("Not sure, how to write a correct list of expected values, because none of the POCO-Classes EmplyeeRecXXX is suitable.");
         }
 
-        //[Test]
+        [Test]
         public static void DefaultValueUsedViaConfigFirstApproach()
         {
             List<object> expected = new List<object> {

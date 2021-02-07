@@ -1,4 +1,4 @@
-ï»¿using ChoETL;
+using ChoETL;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace ChoManifoldReaderTest
 
         public static string FileNameMasterDetailTXT => "MasterDetail.txt";
 
-        //[Test]
+        [Test]
         public static void MasterDetailTest()
         {
             List<object> expected = new List<object>
@@ -108,7 +108,7 @@ namespace ChoManifoldReaderTest
             }
         }
 
-        //[Test]
+        [Test]
         public static void QuickTest()
         {
             List<object> expected = new List<object>
@@ -145,7 +145,7 @@ namespace ChoManifoldReaderTest
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        //[Test]
+        [Test]
         public static void QuickPOCOTest()
         {
             List<object> expected = new List<object>
@@ -181,7 +181,7 @@ namespace ChoManifoldReaderTest
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        ////[Test]
+        [Test]
         public static void LoadTest()
         {
             List<object> expected = new List<object>
@@ -189,15 +189,15 @@ namespace ChoManifoldReaderTest
                 new Orders{ OrderID = 10248, CustomerID = "VINET", EmployeeID = 5 , OrderDate = new DateTime(1996,7,4), RequiredDate = "01081996",ShippedDate = "16071996",ShipVia = 3, Freight = (decimal)32.38},
                 new Orders{ OrderID = 10249, CustomerID = "TOMSP", EmployeeID = 6 , OrderDate = new DateTime(1996,7,5), RequiredDate = "16081996",ShippedDate = "10071996",ShipVia = 1, Freight = (decimal)11.61},
                 new Customer { CustomerID ="ALFKI", CompanyName = "Alfreds Futterkiste", ContactName = "Maria Anders", ContactTitle = "Sales Representative", Address = "Obere Str. 57", City = "Berlin", Country = "Germany"},
-                new Customer { CustomerID ="ANATR", CompanyName = "Ana Trujillo Emparedados y helados", ContactName = "Ana Trujillo", ContactTitle = "Owner", Address = "Avda. de la ConstituciÃ³n 2222", City = "MÃ©xico D.F.;", Country = "Mexico"},
+                new Customer { CustomerID ="ANATR", CompanyName = "Ana Trujillo Emparedados y helados", ContactName = "Ana Trujillo", ContactTitle = "Owner", Address = "Avda. de la Constitución 2222", City = "México D.F.;", Country = "Mexico"},
                 new Orders{ OrderID = 10250, CustomerID = "HANAR", EmployeeID = 4 , OrderDate = new DateTime(1996,7,8), RequiredDate = "05081996",ShippedDate = "12071996",ShipVia = 2, Freight = (decimal)65.83},
                 new SampleType { Field1 ="10111314", Field2 ="012", Field3 =345},
                 new SampleType { Field1 ="11101314", Field2 ="123", Field3 =456},
                 new Orders{ OrderID = 10251, CustomerID = "VICTE", EmployeeID = 3 , OrderDate = new DateTime(1996,7,8), RequiredDate = "05081996",ShippedDate = "15071996",ShipVia = 1, Freight = (decimal)41.34},
                 new SampleType { Field1 ="11121314", Field2 ="901", Field3 =234},
                 new SampleType { Field1 ="10101314", Field2 ="234", Field3 =567},
-                new Customer { CustomerID ="ANTON", CompanyName = "Antonio Moreno TaquerÃ­a", ContactName = "Antonio Moreno", ContactTitle = "Owner", Address = "Mataderos  2312", City = "MÃ©xico D.F.", Country = "Mexico"},
-                new Customer { CustomerID ="BERGS", CompanyName = "Berglunds snabbkÃ¶p", ContactName = "Christina Berglund", ContactTitle = "Order Administrator", Address = "BerguvsvÃ¤gen  8", City = "LuleÃ¥", Country = "Sweden"}
+                new Customer { CustomerID ="ANTON", CompanyName = "Antonio Moreno Taquería", ContactName = "Antonio Moreno", ContactTitle = "Owner", Address = "Mataderos  2312", City = "México D.F.", Country = "Mexico"},
+                new Customer { CustomerID ="BERGS", CompanyName = "Berglunds snabbköp", ContactName = "Christina Berglund", ContactTitle = "Order Administrator", Address = "Berguvsvägen  8", City = "Luleå", Country = "Sweden"}
             };
             List<object> actual = new List<object>();
 
@@ -225,15 +225,15 @@ namespace ChoManifoldReaderTest
                 writer.WriteLine("10248|VINET|5|04071996|01081996|16071996|3|32.38  ");
                 writer.WriteLine("10249|TOMSP|6|05071996|16081996|10071996|1|11.61");
                 writer.WriteLine("ALFKI;Alfreds Futterkiste;Maria Anders;Sales Representative;Obere Str. 57;Berlin;Germany");
-                writer.WriteLine("ANATR;Ana Trujillo Emparedados y helados;Ana Trujillo;Owner;Avda. de la ConstituciÃ³n 2222;MÃ©xico D.F.;Mexico");
+                writer.WriteLine("ANATR;Ana Trujillo Emparedados y helados;Ana Trujillo;Owner;Avda. de la Constitución 2222;México D.F.;Mexico");
                 writer.WriteLine("10250|HANAR|4|08071996|05081996|12071996|2|65.83");
                 writer.WriteLine("10111314012345");
                 writer.WriteLine("11101314123456");
                 writer.WriteLine("10251|VICTE|3|08071996|05081996|15071996|1|41.34");
                 writer.WriteLine("11121314901234");
                 writer.WriteLine("10101314234567");
-                writer.WriteLine("ANTON;Antonio Moreno TaquerÃ­a;Antonio Moreno;Owner;Mataderos  2312;MÃ©xico D.F.;Mexico");
-                writer.WriteLine("BERGS;Berglunds snabbkÃ¶p;Christina Berglund;Order Administrator;BerguvsvÃ¤gen  8;LuleÃ¥;Sweden");
+                writer.WriteLine("ANTON;Antonio Moreno Taquería;Antonio Moreno;Owner;Mataderos  2312;México D.F.;Mexico");
+                writer.WriteLine("BERGS;Berglunds snabbköp;Christina Berglund;Order Administrator;Berguvsvägen  8;Luleå;Sweden");
 
                 writer.Flush();
                 stream.Position = 0;
